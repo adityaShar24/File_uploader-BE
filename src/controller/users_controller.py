@@ -20,3 +20,8 @@ def login():
     password = body['password']
     access_token = create_access_token(identity= username + password , fresh=datetime.timedelta(minutes=15) )
     return make_response({'access_token': access_token} , 201)
+
+def get_all_users():
+    users = User.get_all_users()
+    json_Version = json_util.dumps(users)
+    return make_response(json_Version , 201)
