@@ -8,6 +8,15 @@ class User:
     def save_users(self):
         user_id = users_collection.insert_one({'username':self.username , 'password':self.password}).inserted_id
         return user_id
+    
+    def update_user(userId, fileId, filename):
+        update_user = users_collection.find_one_and_update(
+            {"_id": ObjectId(userId)},
+            {"$set": {"fileId": fileId, "filename": filename}},
+            return_document=True
+        )
+        return update_user
+
 
     def find_by_username(username):
         user = users_collection.find_one({'username': username})
