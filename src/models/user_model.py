@@ -1,7 +1,6 @@
 from database.mongo import users_collection
 from bson.objectid import ObjectId
 
-
 class User:
     def __init__(self , username , password):
         self.username = username
@@ -18,8 +17,7 @@ class User:
             return_document=True
         )
         return update_user
-
-
+    
     def find_by_username(username):
         user = users_collection.find_one({'username': username})
         return user
