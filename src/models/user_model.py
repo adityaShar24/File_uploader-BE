@@ -11,4 +11,4 @@ class User:
 
     def find_by_username(username):
         user = users_collection.find_one({'username': username})
-        return user
+        return User
