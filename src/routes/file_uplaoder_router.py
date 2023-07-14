@@ -1,11 +1,15 @@
 from flask import Blueprint
-from controller.file_uploader_controller import file_upload , get_all_files
+from controller.file_uploader_controller import file_upload , get_all_files , get_file
 
 file_bp = Blueprint('file_bp' , __name__)
 
 @file_bp.post('/upload')
 def file_uplaoder_wrapper():
     return file_upload()
+
+@file_bp.get('/files/<filename>')
+def get_file_wrapper(filename):
+    return get_file(filename)
 
 @file_bp.get('/all_files')
 def get_all_files_wrapper():
