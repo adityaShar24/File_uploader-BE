@@ -1,4 +1,6 @@
 from database.mongo import users_collection
+from bson.objectid import ObjectId
+
 
 class User:
     def __init__(self , username , password):
