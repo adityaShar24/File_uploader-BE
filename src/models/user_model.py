@@ -11,4 +11,9 @@ class User:
 
     def find_by_username(username):
         user = users_collection.find_one({'username': username})
-        return User
+        return user
+    
+    def get_all_users():
+        all_users = users_collection.find()
+        users_list = list(all_users)
+        return users_list 
